@@ -342,6 +342,24 @@
     .friend-card {
       padding: 18px;
       box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .friend-info {
+      min-width: 0;
+    }
+
+    .friend-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: #fff;
+      flex: 0 0 auto;
     }
 
     .friend-card h3 {
@@ -501,13 +519,13 @@
 
         <div class="friend-grid">
           <article class="friend-card">
-            <h3>NaraFluorine</h3>
-            <p>ACM&CTF 双料大师</p>
-            <a class="small-link" href="https://github.com/NaraFluorine" target="_blank" rel="noreferrer">GitHub →</a>
-          </div>
-          <img class="friend-avatar" src="https://github.com/NaraFluorine.png" alt="朋友名字的头像" />
-        </article>
-          
+            <div class="friend-info">
+              <h3>NaraFluorine</h3>
+              <p>ACM&CTF 双料大师</p>
+              <a class="small-link" href="https://github.com/NaraFluorine" target="_blank" rel="noreferrer">GitHub →</a>
+            </div>
+            <img class="friend-avatar" src="https://github.com/NaraFluorine.png" alt="NaraFluorine 的头像" />
+          </article>
         </div>
       </section>
     </main>
