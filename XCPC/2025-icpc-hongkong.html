@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025-ICPC-香港站 | QianK's Blog</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: rgba(255, 255, 255, 0.86);
+      --text: #202124;
+      --muted: #696f7a;
+      --line: rgba(32, 33, 36, 0.1);
+      --accent: #406cff;
+      --shadow: 0 18px 50px rgba(30, 35, 50, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 820px) 220px;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .meta {
+      margin-bottom: 36px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h2 {
+      margin: 44px 0 16px;
+      font-size: 24px;
+      scroll-margin-top: 28px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 16px;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: rgba(64, 108, 255, 0.08);
+      color: var(--accent);
+    }
+
+    .toc {
+      position: sticky;
+      top: 32px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-title {
+      margin: 0 0 14px;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .toc a {
+      display: block;
+      padding: 7px 0;
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .toc a:hover {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+        order: -1;
+      }
+
+      article {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <a class="back" href="./index.html">← 返回 XCPC</a>
+
+      <article>
+        <h1>2025-ICPC-香港站</h1>
+        <div class="meta">XCPC · ICPC · 2025</div>
+
+        <h2 id="day-n">day -n</h2>
+        <p>由于网络赛拿到了校 rk11 的好成绩，所以什么站也没分到，好在 HK 打星没人报名（大家是嫌贵吗？？好吧确实很贵），于是顺利报名。</p>
+
+        <h2 id="day-2">day -2</h2>
+        <p>晚上 19 点准时从长春起飞，大约 22:30 到西安。顺利白嫖中转住宿，在酒店外面十几米的地方有一个面馆，和 empty 一起点了两碗超大面条，跟脸盆差不多大，爽吃。晚上双排王者荣耀，爽玩。</p>
+
+        <h2 id="day-1">day -1</h2>
+        <p>早上机场白嫖中转机场餐，预制菜。大约下午一点落地 HK。顺利和 flu 会面。</p>
+        <p>小插曲：在机场帮助一个（疑似）不会讲英语也不会讲汉语的黄种人找行李，走到询问台，工作人员先叽里咕噜说了一堆粤语，完全没听懂，然后又说 English OK？QianK 赶忙回答 OK，OK，可惜 QianK 的英语听力也是依托答辩，只听到了关键词 Red，不过这就够了，领着陌生人顺利在红色标志牌处找到了行李箱，功德 +1。</p>
+        <p>准备出发。机场快线一百块送你出机场，纯纯智商税。我们最后坐大巴能一直送到酒店门口才一人 22.5，我们在大巴上靠着 empty 的热点，艰难的打开了微信的香港乘车码，然后扫上了，司机人很不错，让我们先上车再扫码。香港大巴站这里有非常古老的电风扇挂在车站上，一股“工业硬拉低级科技”的天空之城的感觉，大巴是双层的，一楼楼梯侧是放行李箱的。作为第一次来到 HK 的 QianK，当然是选择跑到二楼欣赏 HK 的街景。整个香港都被海包围，港口还是挺壮观的，房子非常密集&高耸，看起来很有年代感，植被也很高大，皆为热带植被。空气中弥漫着一股神奇的香水味（资本主义的腐朽生活）。</p>
+        <p>到达酒店，古老又壮观，不得不感慨 QianK 真的是订酒店达人，在寸土寸金的 HK，步行十五分钟地铁站的距离，竟然找到了 700/三人每晚的四星 or 五星酒店！一楼有一个小小的 bar 卖 coffee，二楼是宴会厅，三楼有健身房/SPA 等，外围有泳池，可惜冬季没有开放，总体跟国内的酒店布局相似。</p>
+        <p>晚上决定出去觅食，坐地铁到了某个商场，逛了好多圈，发现最便宜的只有 KFC，-43.26 RMB，回去的时候在酒店旁边的面包店发现了真低价烤面包，而且还是买三送一，老板人很好，研究了很久后，VX 和支付宝还是不能顺利支付，让我们赊账改天再给，对 HK 居民印象 +++。</p>
+        <p>健了一会身，打 CF，掉大分，睡大觉。</p>
+
+        <h2 id="day-0">day 0</h2>
+        <p>签到+热身日。</p>
+        <p>醒来已到中午，三人一致决定前往 PolyU 吃午饭。</p>
+        <p>先签到，领到一个玩偶熊+粉色小恐龙挂件+冲锋衣+两个手提帆布包+胸牌+手提袋，然后吃饭，选择了妙妙叉烧饭套餐，-29.62 RMB，柠檬水又热又苦，难喝到爆炸，叉烧饭一般般。</p>
+        <p>下午热身赛，全队无人会用比赛系统，场外求助劳伦斯，顺利签上 A 题下班。在吃饭的路上 empty 还在和乐乐讨论数据结构题。</p>
+        <p>题外话：这道题后来成了 2025 年吉大省赛校内选拔赛的题，empty 凭借残存的记忆遥控 QianK，顺利写过了，也凭这题拿到了选拔赛 rk1，顺利抢到省赛正式名额。</p>
+        <p>晚上 Jane Street 赞助的 3000/10 人桌的晚宴，全是肉菜，很好吃，唯一的槽点是 10 个人分 6 罐饮料，很神秘。</p>
+
+        <h2 id="day-1-contest">day 1</h2>
+        <p>早上又从面包店买了几个面包垫肚子，顺利结清旧账（是老板的店员？跟 ta 解释了一下我们之前欠款的事，人也非常 nice）。</p>
+        <p>正赛非常坐牢，两题铜三题银，flu 光速切掉 C，我和 empty 讨论了一下 K，empty 给了一个非常敏锐的观察，只要逆向匹配即可，于是换 empty 写自动机，97 min 一发过了。下面就是垃圾时间了，略过。</p>
+        <p>颁奖的时候询问了一下同校好友，遗憾银首。未完待续</p>
+
+        <h2 id="day2">day2</h2>
+        <p>香港半日游，启动。未完待续</p>
+
+        <h2 id="summary">总结</h2>
+        <p>未完待续。</p>
+      </article>
+    </main>
+
+    <aside class="toc">
+      <div class="toc-title">目录</div>
+      <a href="#day-n">day -n</a>
+      <a href="#day-2">day -2</a>
+      <a href="#day-1">day -1</a>
+      <a href="#day-0">day 0</a>
+      <a href="#day-1-contest">day 1</a>
+      <a href="#day2">day2</a>
+      <a href="#summary">总结</a>
+    </aside>
+  </div>
+</body>
+</html>
