@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QianKee · Blog</title>
+  <meta name="description" content="QianKee 的个人博客：XCPC、考研、OI 教学、科研论文与友链。" />
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #202124;
+      --muted: #696f7a;
+      --line: rgba(32, 33, 36, 0.1);
+      --accent: #406cff;
+      --accent-soft: rgba(64, 108, 255, 0.1);
+      --shadow: 0 18px 50px rgba(30, 35, 50, 0.08);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: 340px;
+      padding: 32px 24px 88px;
+      color: #fff;
+      background:
+        linear-gradient(120deg, rgba(20, 24, 35, 0.78), rgba(36, 55, 120, 0.45)),
+        url("assets/background.jpg") center / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -70px -10%;
+      height: 140px;
+      background: var(--bg);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-content {
+      max-width: 1120px;
+      margin: 76px auto 0;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 118px;
+      height: 118px;
+      border-radius: 32px;
+      border: 4px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+      object-fit: cover;
+      background: #fff;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(34px, 6vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 660px;
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 17px;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: -52px auto 0;
+      padding: 0 24px 64px;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .sidebar,
+    .section,
+    .post,
+    .paper,
+    .friend-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .sidebar {
+      padding: 24px;
+      align-self: start;
+      position: sticky;
+      top: 24px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .sidebar p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .profile-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .profile-links a {
+      padding: 11px 13px;
+      border-radius: 16px;
+      background: rgba(245, 247, 252, 0.86);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .profile-links a:hover {
+      transform: translateY(-2px);
+      background: var(--accent-soft);
+    }
+
+    main {
+      display: grid;
+      gap: 24px;
+    }
+
+    .section {
+      padding: 26px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+
+    .section-desc {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .more {
+      white-space: nowrap;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .category {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.72);
+      transition: 0.2s ease;
+    }
+
+    .category:hover {
+      transform: translateY(-3px);
+      border-color: rgba(64, 108, 255, 0.3);
+      box-shadow: 0 14px 30px rgba(64, 108, 255, 0.08);
+    }
+
+    .category .tag {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .category h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    .category p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .post-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .post {
+      padding: 18px 20px;
+      box-shadow: none;
+      transition: 0.2s ease;
+    }
+
+    .post:hover {
+      transform: translateX(4px);
+      border-color: rgba(64, 108, 255, 0.28);
+    }
+
+    .post-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .post h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .post p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .paper-list,
+    .friend-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .paper {
+      padding: 18px 20px;
+      box-shadow: none;
+    }
+
+    .paper h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .paper p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .paper-links a,
+    .small-link {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .friend-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .friend-card {
+      padding: 18px;
+      box-shadow: none;
+    }
+
+    .friend-card h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .friend-card p {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-content,
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .avatar {
+        width: 96px;
+        height: 96px;
+        border-radius: 26px;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .category-grid,
+      .friend-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding-inline: 18px;
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .shell {
+        padding-inline: 18px;
+      }
+
+      .section {
+        padding: 22px;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#top">QianKee</a>
+      <div class="nav-links">
+        <a href="#posts">文章</a>
+        <a href="#papers">科研论文</a>
+        <a href="#friends">友链</a>
+        <a href="https://github.com/QianKee" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <img class="avatar" src="https://github.com/QianKee.png" alt="QianKee 的头像" />
+      <div>
+        <h1>QianKee's Blog</h1>
+        <p>记录算法竞赛、考研复习、OI 教学与科研工作。文章尽量写得清楚、简洁、可复用。</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar" aria-label="个人信息">
+      <h2>周浩宇 / QianKee</h2>
+      <p>Computer Science · XCPC · OI · Research</p>
+      <div class="profile-links">
+        <a href="https://github.com/QianKee" target="_blank" rel="noreferrer">GitHub 主页</a>
+        <a href="#posts">阅读博客文章</a>
+        <a href="#papers">查看科研论文</a>
+        <a href="#friends">朋友链接</a>
+      </div>
+    </aside>
+
+    <main>
+      <section class="section" id="posts">
+        <div class="section-head">
+          <div>
+            <h2>博客文章</h2>
+            <p class="section-desc">文章按目录分类，适合直接放在 GitHub Pages 中维护。</p>
+          </div>
+        </div>
+
+        <div class="category-grid">
+          <a class="category" href="XCPC/">
+            <span class="tag">01</span>
+            <h3>XCPC</h3>
+            <p>训练记录、题解、算法模板、赛后复盘。</p>
+          </a>
+          <a class="category" href="考研/">
+            <span class="tag">02</span>
+            <h3>考研</h3>
+            <p>数学、408、英语与复习节奏整理。</p>
+          </a>
+          <a class="category" href="OI教学/">
+            <span class="tag">03</span>
+            <h3>OI教学</h3>
+            <p>面向初学者的算法讲义、例题与练习。</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="latest-title">
+        <div class="section-head">
+          <div>
+            <h2 id="latest-title">最近文章</h2>
+            <p class="section-desc">下面是示例入口，替换成你自己的文章即可。</p>
+          </div>
+        </div>
+
+        <div class="post-list">
+          <a class="post" href="XCPC/index.html">
+            <div class="post-meta"><span>XCPC</span><span>·</span><span>算法竞赛</span></div>
+            <h3>XCPC 文章索引</h3>
+            <p>整理训练计划、题解、模板和比赛复盘。</p>
+          </a>
+          <a class="post" href="考研/index.html">
+            <div class="post-meta"><span>考研</span><span>·</span><span>复习笔记</span></div>
+            <h3>考研复习索引</h3>
+            <p>记录数学、专业课、英语等科目的阶段性总结。</p>
+          </a>
+          <a class="post" href="OI教学/index.html">
+            <div class="post-meta"><span>OI教学</span><span>·</span><span>讲义</span></div>
+            <h3>OI 教学索引</h3>
+            <p>把算法知识写成适合教学的材料。</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" id="papers">
+        <div class="section-head">
+          <div>
+            <h2>科研论文</h2>
+            <p class="section-desc">用于展示自己的论文、项目页面、代码仓库与数据集。</p>
+          </div>
+          <a class="more" href="papers/">全部论文 →</a>
+        </div>
+
+        <div class="paper-list">
+          <article class="paper">
+            <h3>你的论文标题 / Project Title</h3>
+            <p>一句话介绍研究内容，例如：面向视觉语言模型的图像时间推理 benchmark。</p>
+            <div class="paper-links">
+              <a href="#">Paper</a>
+              <a href="#">Code</a>
+              <a href="#">Project</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="friends">
+        <div class="section-head">
+          <div>
+            <h2>友链</h2>
+            <p class="section-desc">这里可以放朋友的 GitHub 主页。</p>
+          </div>
+        </div>
+
+        <div class="friend-grid">
+          <article class="friend-card">
+            <h3>Friend Name</h3>
+            <p>一句简短介绍，例如：算法竞赛 / 系统 / AI。</p>
+            <a class="small-link" href="https://github.com/" target="_blank" rel="noreferrer">GitHub →</a>
+          </article>
+          <article class="friend-card">
+            <h3>Friend Name</h3>
+            <p>一句简短介绍，例如：OI / 数学 / 开源。</p>
+            <a class="small-link" href="https://github.com/" target="_blank" rel="noreferrer">GitHub →</a>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>© 2026 QianKee. Built with GitHub Pages.</p>
+  </footer>
+</body>
+</html>
