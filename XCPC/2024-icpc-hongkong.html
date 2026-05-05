@@ -66,6 +66,21 @@
       .page { grid-template-columns: 1fr; }
       .toc { position: static; }
     }
+.giscus-container {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+
+  /* 关键修复 */
+  width: 100%;
+  overflow: hidden;
+}
+
+.giscus-container iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+    
   </style>
 </head>
 <body>
@@ -119,7 +134,7 @@
 <p>人生首场区域赛，虽然是打星参加，但是涨了不少见识，本质旅游队</p>
 
 <!-- 评论区 -->
-<div style="margin-top: 60px;">
+<div class="giscus-container">
   <script src="https://giscus.app/client.js"
           data-repo="QianKee/QianKee.github.io"
           data-repo-id="R_kgDOPi_lmw"
