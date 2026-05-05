@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2025-吉林省赛 & 东北邀请赛 | QianK's Blog</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: rgba(255, 255, 255, 0.86);
+      --text: #202124;
+      --muted: #696f7a;
+      --line: rgba(32, 33, 36, 0.1);
+      --accent: #406cff;
+      --shadow: 0 18px 50px rgba(30, 35, 50, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 820px) 220px;
+      gap: 42px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 12px; font-size: 38px; }
+    .meta { margin-bottom: 36px; color: var(--muted); font-size: 14px; }
+    h2 { margin: 44px 0 16px; font-size: 24px; scroll-margin-top: 28px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    h3 { font-size: 18px; margin: 24px 0 12px; color: var(--accent); }
+    p { margin: 0 0 18px; font-size: 16px; }
+    del { color: var(--muted); }
+    blockquote {
+      margin: 20px 0;
+      padding: 10px 20px;
+      border-left: 4px solid var(--accent);
+      background: rgba(64, 108, 255, 0.05);
+      font-style: italic;
+    }
+    .toc {
+      position: sticky;
+      top: 32px;
+      align-self: start;
+      
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+    }
+    .toc-title { margin-bottom: 10px; font-weight: 800; }
+    .toc a { display: block; padding: 6px 0; color: var(--muted); }
+    .toc a:hover { color: var(--accent); }
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; }
+      .toc { position: static; }
+    }
+.giscus-container {
+  margin-top: 60px;
+  padding: 28px;
+
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+
+  width: 100%;
+}
+
+.giscus-container iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block;
+  border-radius: 12px;
+}
+.comment-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 60px 0 16px;
+}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <a class="back" href="./index.html">← 返回 游记合集</a>
+      <article>
+        <h1>2025-吉林省赛 & 东北邀请赛</h1>
+        <div class="meta">XCPC · Provincial · 2025</div>
+
+        <h2 id="day-n">day -n</h2>
+        <h3>校内选拔赛第一场</h3>
+        <p>书接上回，在empty遥控QianK写完妙妙数据结构题后，最终凭借三分钟的罚时优势拿到校排rk1（当然，前四个种子队没来打）</p>
+        
+        <h3>校内选拔赛第二场</h3>
+        <p>由于我要给小朋友上竞赛课，跟lus请假了，empty和flu也没来，所以我们队缺席本场比赛。</p>
+        <p>打完第一场的时候和lus友好沟通了一下，lus非常爽快地同意了。</p>
+        <blockquote>"按照规则，你们第二场确实可以不用来了。"</blockquote>
+        <p>顺利出线</p>
+
+        <h2 id="day-0">day 0</h2>
+        <p>签到&热身日</p>
+        <p>上午十点多在长理体育馆成功集合，签到领东西，帆布包+T恤+陶瓷杯+胸牌+手册</p>
+        <p>上机热身，又又一次场外（其实是场内）求助劳伦斯队如何使用vscode，折腾了一会调好了，热身赛三题下班，D是个神秘随机化，晚上回宿舍敲过了（洛谷P9211）</p>
+        <p>晚上拿着餐卷在食堂吃饭，点了一盘炸串，可惜唯一能换的喝的是九阳豆浆，还是吃撑了。</p>
+
+        <h2 id="day-1">day 1</h2>
+        <p>省赛日，大胜利</p>
+        <p>赛前目标：你有一块真正的金牌吗？</p>
+        <p>开局，empty选择正着开，一眼锁定A题（伏笔*1），flu在随机读题。</p>
+        <p>我跟榜写题，4min一发过J，13min一发过L，36min交了一发G，WA了，队友把我赶下机写D，三人简单猜测，42min一发过了。笨人马上发现了自己G题的低级错误，某个大于小于号写反，改了交上后过了，这时候来到了金牌区边缘，rk14。</p>
+        <p>此时empty声称自己会了A，叽里咕噜说了一堆，大概是一个类gcd的迭代，我和flu对此表示非常认同（伏笔*2），所以换empty上机，我和flu继续随机看题。</p>
+        <p>empty写了一会表示，有会做的题可以把他踹下机，于是喂给他C题，empty发现是个诈骗题，直接秒，70min一发过了，继续写A，76min全场第一个交A题。</p>
+        <p>QianK：我们不会拿一血了吧（毒奶一口）果然奶错了，喜提TLE，flu说可能是缓存没清空，改了改又T了。</p>
+        <p>继续读题，flu告诉我L是一个找规律，手玩了一下没找到什么有效观察，flu选择上机打表，然后我们三人对着表肉眼找规律，找到后换我上机开敲，WA了两发，队友把我踹下机，趁机去了趟厕所冷静一下。队友继续打表观察，发现结论猜错了，猜到正确的结论后换我上机继续敲敲敲，打印出来肉眼debug后发现笨人又犯了一个很zz的错误，幂次方取模的时候直接对指数取模，忘了套欧拉定理，empty表示这是一个非常傻逼的错误，改了改终于在155min过了，这是笨人全场最后一次上机。此时掉出金牌区，来到了rk22。</p>
+        <p>开饭，发的是麦当劳巨无霸+奥利奥+小瓶可乐，爽吃。</p>
+        <p>empty继续上机写A，改了改又WA又T，很神秘，这时flu把H题的题意喂给我们，empty灵机一动，大喊一声哈希！讲了讲，三人表示非常正确啊，这时QianK已经头昏脑胀，换flu来大力敲线段树，我在一旁观望代码。第一发交上去WA了，发现哈希会有重判的情况。改成了同时维护区间平方和+区间和，交上去又WA了，打印代码，换empty写A。这时笨人发现，flu的树节点名字叫mod，取模也是mod，发出尖锐爆鸣声，flu继续改，终于在274min AC。</p>
+        <p>flu在笨人关于省赛的QQ动态下评论:"点名批评队友写的线段树居然敢拿mod当树根，取模都能挂，什么神仙码风"</p>
+        <p>笨人的回复:"还好让我肉眼debug出来了"</p>
+        <p>此时，打开榜单数了数，发现又在金牌区边缘了，继续换empty写A，写到最后也没过，最终-19遗憾下机。赛后听讲解，发现做法是对的，只是实现的时候，强制终止辗转相除的次数略微调大了一点，这也卡，太神秘了，出题人说是为了卡掉不正确的二分等做法？？？</p>
+        <p>赛后大礼堂看滚榜+颁奖，非常激动。</p>
+        <p>重新进行邀请赛签到，领到了一模一样的物资包（除了T恤颜色和胸牌不同）</p>
+        <p>晚上邀请赛热身，三人一致决定跑路。</p>
+        <blockquote>"我有一块真正的金牌了！！！"</blockquote>
+
+        <h2 id="day-2">day 2</h2>
+        <p>东北邀请赛，倒闭日</p>
+        <p>仍然选择随机读题，我来跟榜签到，发现G是签，9min一发过了。剩下的题都不太好做，所以继续读题。发现K过了一车人，三人一起读题，empty发现是个诈骗题，上机敲了敲，76min一发过了。这时笨人声称自己会了I，上机写完直接三连WA，empty来看了一眼后发现了读题的错误，笨人表示非常操蛋，出题人的文学素养有待提高，改了一下，85min顺利通过。flu会了F，上机写，交了两发都WA了，打印出来顺利发现了错误，115min过了。</p>
+        <p>empty说自己会了A，一道gcd数数题，跟我们讲了一下开始写。笨人非常不擅长数学，所以选择继续读别的题，这时发现E是树上DP，L是小模拟，D貌似是个数据结构。empty发现这个方法数错了，红温后改了又改，终于在213min过了，这时全队已经吃了八发罚时了，罚上天了。</p>
+        <p>吃午饭，仍然是麦当劳+可乐。期间去了好几趟厕所冷静，但是没什么卵用。</p>
+        <p>flu发现H是个二分，开始上机敲，写了一个非常麻烦的check，我和flu一起想了想，也没发现什么明显错误，我改了一版后还是WA，这时候已经彻底红温了，大脑无法正常思考，最后遗憾下机。赛后询问wjq，发现是一个我们都没想到的小trick，容量是固定的，人数可以随机自由调整，所以不需要用什么优先队列手动调整，只需要比较sum是否小于等于容量即可。</p>
+        <p>本来跟队友说，留半小时给我写L，但是最后上机的时候只有十几分钟了，不过从今天（2026.5.5）来看，赛时如果能冷静地写一写，15min或许也够了，因为榜被带歪了，这个题实际上是很简单的小模拟，只是当时心态不好，不够理智，也放弃了挣扎的机会，经典马后炮环节</p>
+        <p>由于下午有普及组的课要上，闭幕式+颁奖典礼没去，队友代领了银牌。</p>
+        <p>（在此感谢cz帮忙带了一节提高组的课，orz）</p>
+
+        <h2 id="summary">总结</h2>
+        <p>作为第一次线下正式参赛，发挥的还算可以了，可能是第一天脑细胞耗尽了，第二天比赛的时候三人状态都不太好，略有遗憾。</p>
+
+        <h2 id="easter-egg">彩蛋</h2>
+        <blockquote>"吃货的世界，我可能理解不了，但我知道你现在好像没啥事做（聊得这个欢啊）......那就赶紧加训吧......打星的队伍，也在榜单上有成绩"</blockquote>
+        <p>虽然上述发言不是针对我们队，但是已经载入史册，在校队内广为人知QWQ</p>
+<!-- 评论区 -->
+<div class="comment-title">评论</div>     
+<div class="giscus-container">
+  <script src="https://giscus.app/client.js"
+          data-repo="QianKee/QianKee.github.io"
+          data-repo-id="R_kgDOPi_lmw"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOPi_lm84C8Xop"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>        
+      </article>
+    </main>
+
+    <aside class="toc">
+      <div class="toc-title">目录</div>
+      <a href="#day-n">day -n</a>
+      <a href="#day-0">day 0</a>
+      <a href="#day-1">day 1</a>
+      <a href="#day-2">day 2</a>
+      <a href="#summary">总结</a>
+      <a href="#easter-egg">彩蛋</a>
+    </aside>
+  </div>
+</body>
+</html>
