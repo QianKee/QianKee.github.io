@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$']],
+        displayMath: [['$$', '$$']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>洛谷 P3381 【模板】最小费用最大流 | QianK's Blog</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: rgba(255, 255, 255, 0.86);
+      --text: #202124;
+      --muted: #696f7a;
+      --line: rgba(32, 33, 36, 0.1);
+      --accent: #406cff;
+      --shadow: 0 18px 50px rgba(30, 35, 50, 0.08);
+      --code-bg: #282c34;
+      --code-text: #abb2bf;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+    }
+    a { color: inherit; text-decoration: none; }
+    
+    /* 核心修改：改为单栏居中布局，去掉侧边目录占用的空间 */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    
+    .back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 12px; font-size: 38px; }
+    .meta { margin-bottom: 36px; color: var(--muted); font-size: 14px; }
+    h2 { margin: 44px 0 16px; font-size: 24px; scroll-margin-top: 28px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    p { margin: 0 0 18px; font-size: 16px; }
+    strong { font-weight: 700; }
+    a.link { color: var(--accent); text-decoration: underline; transition: 0.2s; }
+    a.link:hover { color: #1e4bd8; }
+    
+    /* 代码块样式适配 */
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    code { font-family: inherit; }
+    
+    .giscus-container {
+      margin-top: 60px;
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      width: 100%;
+    }
+    .giscus-container iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: block;
+      border-radius: 12px;
+    }
+    .comment-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 60px 0 16px;
+    }
+    @media (max-width: 768px) {
+      article { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <a class="back" href="./index.html">← 返回教学内容</a>
+      <article>
+        <h1>【洛谷】P3381 最小费用最大流</h1>
+        <div class="meta">算法 · 题解 · 图论</div>
+
+        <p>写一篇题解来加深印象。其他题解都没有说明复杂度的问题和常见易错点。本文将介绍用 vector 来存图，采用 spfa + dinic 的算法，也就是 SSP 算法。</p>
+
+        <h2>SSP 算法</h2>
+        <p>默认读者已经学会了最大流算法。现在，我们每条边加上<strong>单位流量</strong>的费用，要求在最大流的基础上满足费用最小，这就是最小费用最大流问题。</p>
+
+        <p>简单来说，我们每次贪心地选择费用最小的增广路增广，直到不存在增广路时终止算法。需要注意的是，图中不能有负圈，如果存在负圈，首先要用消圈算法消除负圈。<a class="link" href="https://www.luogu.com.cn/problem/P7173" target="_blank">存在负圈的题目</a>这是一道有负圈的费用流模板题。</p>
+
+        <p>现在证明一下贪心的正确性。我们已知图中不存在负圈。假设流量为 $i$ 的流的费用为 $f_i$，我们通过增广一次最短增广路求出 $f_j$。如果存在另一种从 $f_i$ 增广一次增广路且小于 $f_j$ 的费用流 $f_k$，则该增广必然走过负圈，与已知图中不存在负圈矛盾，所以贪心是可行的。</p>
+
+        <p>由于极端情况下 spfa 找增广路的时间复杂度为 $O(nm)$，故 SSP 算法的复杂度为 $O(nmf)$，其中 $f$ 为网络最大流，需要注意的是，这并不是一个多项式复杂度，例如 $f = 2^{n/2}$ 时，复杂度为指数级别。</p>
+
+        <p>实现代码时，可能存在一些易错点。首先，用 vector 来存图，找反向边时需要添加对应编号快速寻找反向边，其次，反向边的费用应该是 $-c$，这样走反向边时才满足最短路的判断条件，正向边的条件为 $dis[v]=dis[u]+c$，反向边就是 $dis[u]=dis[v]+(-c)$。最后，跑一次 spfa 应该<strong>多次</strong> dfs 找增广路而不是只找一次，有的题目会卡只找一次的代码。</p>
+
+        <p>附上代码。</p>
+
+<pre><code>#include &lt;cstdio&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;cstring&gt;
+#include &lt;queue&gt;
+#define int long long//开longlong
+using namespace std;
+const int N = 5e3 + 5;
+const int inf = 0x7fffffff;
+int n, m, s, t, mincos;
+struct node
+{
+    int v, w, c, id;
+};
+vector&lt;node&gt; val[N];
+int dis[N], cur[N];
+bool vis[N];
+
+bool spfa()
+{
+    for (int i = 1; i &lt;= n; i++)
+        dis[i] = inf;
+    queue&lt;int&gt; q;
+    q.push(s);
+    dis[s] = 0;
+    while (!q.empty())
+    {
+        int x = q.front();
+        q.pop();
+        vis[x] = false;
+        for (auto &amp;e : val[x])
+            if (e.w &amp;&amp; dis[e.v] &gt; dis[x] + e.c)
+            {
+                dis[e.v] = dis[x] + e.c;
+                if (!vis[e.v])
+                    q.push(e.v), vis[e.v] = true;
+            }
+    }
+    return dis[t] != inf;//如果存在增广路就返回true，否则返回false
+}
+
+int dfs(int x, int res)
+{
+    if (x == t || !res)
+        return res;
+    vis[x] = true;
+    int used = 0;
+    for (int i = cur[x]; i &lt; val[x].size(); ++i)
+    {
+        auto &amp;e = val[x][i];
+        cur[x] = i;//当前弧优化
+        if (!vis[e.v] &amp;&amp; e.w &amp;&amp; dis[e.v] == dis[x] + e.c)
+        {
+            int cnt = dfs(e.v, min(res - used, e.w));//递归找流量
+            if (cnt)
+            {
+                e.w -= cnt;
+                val[e.v][e.id].w += cnt;
+                mincos += cnt * e.c;
+                used += cnt;
+                if (used == res)
+                    break;//残留优化
+            }
+        }
+    }
+    vis[x] = false;
+    return used;
+}
+
+int dinic()
+{
+    int ans = 0, flow;
+    while (spfa())
+    {
+        memset(cur, 0, sizeof(cur));
+        while ((flow = dfs(s, inf)))//一次spfa要找多次增广路
+            ans += flow;
+    }
+    return ans;
+}
+
+signed main()
+{
+    scanf("%lld%lld%lld%lld", &amp;n, &amp;m, &amp;s, &amp;t);
+    for (int i = 1; i &lt;= m; ++i)
+    {
+        int u, v, w, c;
+        scanf("%lld%lld%lld%lld", &amp;u, &amp;v, &amp;w, &amp;c);
+        val[u].push_back({v, w, c, (int)val[v].size()});//记录反向边的id
+        val[v].push_back({u, 0, -c, (int)val[u].size() - 1});//记录反向边的id
+    }
+    int maxflow = dinic();
+    printf("%lld %lld\n", maxflow, mincos);
+    return 0;
+}</code></pre>
+
+        <div class="comment-title">评论</div>     
+        <div class="giscus-container">
+          <script src="https://giscus.app/client.js"
+                  data-repo="QianKee/QianKee.github.io"
+                  data-repo-id="R_kgDOPi_lmw"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPi_lm84C8Xop"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="zh-CN"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
