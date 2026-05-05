@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>简短总结 | QianK's Blog</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: rgba(255, 255, 255, 0.86);
+      --text: #202124;
+      --muted: #696f7a;
+      --line: rgba(32, 33, 36, 0.1);
+      --accent: #406cff;
+      --shadow: 0 18px 50px rgba(30, 35, 50, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 820px) 220px;
+      gap: 42px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 12px; font-size: 38px; }
+    .meta { margin-bottom: 36px; color: var(--muted); font-size: 14px; }
+    h2 { margin: 44px 0 16px; font-size: 24px; scroll-margin-top: 28px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    p { margin: 0 0 18px; font-size: 16px; text-align: justify; }
+    del { color: var(--muted); }
+    
+    .toc {
+      position: sticky;
+      top: 32px;
+      align-self: start;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+    }
+    .toc-title { margin-bottom: 10px; font-weight: 800; }
+    .toc a { display: block; padding: 6px 0; color: var(--muted); font-size: 14px;}
+    .toc a:hover { color: var(--accent); }
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; }
+      .toc { position: static; }
+    }
+    
+    .giscus-container {
+      margin-top: 60px;
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      width: 100%;
+    }
+    .giscus-container iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: block;
+      border-radius: 12px;
+    }
+    .comment-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 60px 0 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <a class="back" href="./index.html">← 返回算法竞赛</a>
+      <article>
+        <h1>算法竞赛生涯回顾与总结</h1>
+        <div class="meta">算法 · 总结 · 2026</div>
+
+        <h2 id="junior">初中</h2>
+        <p>第一次听说算法竞赛，是在2018年，那时候我才七年级。恰巧学校开设培优课，不过由于体育考试分数过低而没有选入第一期培训。后面第二期培优班筛选的排名没有加体育成绩，顺利入选。在某节课开始之前，级部主任站在讲台说自己女儿（当年考入了西安交大，非常牛逼）升学的事情，大概是说，自主招生只看五科竞赛的奖项，她先是非常熟练地说出了前四门，数理化生，然后犹豫了两秒后又说出了“计算机”，这是我第一次了解到算法竞赛，总而言之，第一次听说学计算机还能升学，重塑了世界观。</p>
+        <p>PS：自主招生在我上高中的半年之前被教育部毙掉了，时代的眼泪，取而代之的是综合评价招生和强基计划<br>
+        不过初中没有竞赛培优，这件事也随之抛之脑后，非常遗憾错过了早培的机会。</p>
+        <p>九年级的寒假，距离中考还有半年时，爆发了新冠疫情，也是在家美美玩上了王者荣耀&amp;和平精英。凭借每日高强度网上冲浪，在济外的群里得知了SSFZ全省招生的消息，填了报名表通过了。中考结束后，前往XFL参加考试，没想到竟然考上了？暑假里，经过一段时间左右摇摆，还是选择了去SSFZ上学。</p>
+
+        <h2 id="senior">高中</h2>
+        <p>开学之后，发现自己中考砍下的分数，是同班的ZB市同学中的最低分，压力有点大。高中第一位同桌是全ZB市唯二的中考数学满分之一，体委是ZB市某区县中考前三名，还有其他各个地级市的无敌高手们，不过没什么好焦虑的，毕竟裆部选手怎么考都是赢赢赢，不是吗？但是高中的我没想通这一点，心态不好，总想考个更好的成绩。</p>
+        <p>扯得有点远了，回到算法竞赛来。XFL在军训结束后，五科竞赛老师会发一张宣传单，如果你喜欢，可以自己去报名。我一下子就被OI吸引了目光，在班主任（真.IMO的金牌教练，韦东奕的高中竞赛教练）的鼓励下，报名后开始学竞赛了。高中启蒙的W老师是从SSY跳槽过来的，人很nice，讲的也非常好，感谢高中母校优秀的师资！第一节课的时候来了整整一机房的人，后面人越来越少，同班同学也只剩下了我自己还在参加。从9.13开始上课，每周三和周天两个晚自习的时间，都在机房上课。放寒假的时候，刚刚结束了基础语法的学习。记得寒假的时候有线上培训，XFL校区只有我和另一名同学参加了，其他都是本校的同学，寒假讲的内容应该是bfs/dfs等。开学后机房里只有不到十名同学了，而我也是唯一一个高中零基础开始学的人了，其他留下的同学或多或少都有基础。暑假结束前，W老师讲完了01背包，春季大概学了最短路/最小生成树/二分/贪心/简单DP等普及组的算法，这时距离NOIP还有差不多四个月。暑假参加了SD的夏令营（典中典之山东外国语职业技术大学）发现连小学生都打不过，有些自闭。不过在机房认识了一些人，长见识了。W老师也跟着一起去了，偶尔还会去宿舍看我，非常认真负责的教练。XFL只有我和寒假一起上线上课的同学参加了夏令营，本校也有几个同学来了。</p>
+        <p>开学已经是高二了，这时的我连搜索都写不明白，CSP一轮擦边过了。碰上了史上最难的CSP二轮，凭借T3的爆搜砍下了45pts的"高分"。回学校后，再这样发展下去，NOIP就要喜提省四了，所以跟班主任友好沟通一波。班主任也是很通情达理地同意我停课准备NOIP，不过还是偶尔回来上过几节数学和物理。机房里，有一位高水平的高一学弟，高二有：我，我隔壁班的两个同学，17班的一个同学。高三还有一位和我水平相近的学长，我俩会一起打XYD的模拟赛，讨论一些题。机房的同学也会偶尔被拉去外面做核酸，日子一天一天过去，很快就到了NOIP。比赛前一晚紧张地睡不着觉，直到三点多才勉强睡着，早上六点多就被闹钟叫醒了，这也为第二天的糟糕发挥埋下了伏笔。</p>
+        <p>2021年的NOIP是比较简单的，可惜本人没有把握住机会，主要是T1犯下了一个很ZZ的错误——数组开小了。虽然写出了埃式筛的正解，可惜RE只得了70pts，T2写的爆搜没有优化，所以空砍0pts，T3随机化乱搞，拿到了36pts（实际上，实现的不是很好，写好的话能拿接近满分），T4是又臭又长的大力数据结构题，直接扔了没写。最终获得了70+0+36+0的成绩，与省一失之交臂（省一分数线120pts，差了14分，大约是省二前30名，全省总排rk150-200）</p>
+        <p>NOIP结束后，整个人的心理状态也不太正常，时而异常悲观，时而非常暴躁，一直到高考都没有调整过来。一方面是这次竞赛失利，另一方面是同学的文化课水平都太高了，压的我喘不过气来。本以为有综合评价招生的降分，可以美美上山大，结果天不遂人意，高考直接坠机了，本来想着复读去了，没想到还能抄底吉林大学，那还说啥了，上吧！</p>
+
+        <h2 id="university">大学</h2>
+        <p>由于"优异的"高考表现，大一上学期时学习的是地质类专业，从入学后就一直准备转专业，也是在大一下学期成功转到了CS专业，终于是扬眉吐气一回。机缘巧合下，新室友，以及另一位ACM校队的同学告诉我，可以联系教练打ACM。很快加到L老师的联系方式，开始跟着新生一起训练。上大学后第一次打比赛是校内的青云杯，获得了rk10的好成绩。可惜的是，ACM一直没有找到合适的队友，本来就此准备放弃了，谁曾想，在劳伦斯哥哥的推荐下，暑假前Flu主动找到了我，询问我是否想一起打ACM，立刻答应了下来，并且参加了暑假的杭电和牛校多校。虽然后期都摆烂了，没打完</p>
+        <p>开学之后，只有Flu和QianK（我）两人一队，网络赛自然是被同校别的队打的找不着北。好在第一场结束之后，我从QQ群里挖来了第三个队友——刚上大一的empty佬！在强力新援的帮助下，终于不再是校内垫底了，第二场网络赛校排rk11。</p>
+        <p>不过，这个网络赛成绩显然分不到任何正式名额，所以我们选择了打星参加了年底的HK站（详情见游记），队名叫做：Air_conditioning = nullptr ，也是收获了首块打星铜牌。此时队伍配置是，Flu和QianK都是CF青名，empty从来不打CF，估计有蓝到紫的水平。</p>
+        <p>转眼就来到的大二下学期，在同学的推荐下，来到了长春某教培机构教小朋友学算法竞赛，同时吉大ACM队的教练换成了lus。这学期只有省赛和东北邀请赛。三人磨合了几场比赛，VP近几年的省赛和邀请赛，定下了省赛金牌，邀请赛银牌的小目标，好在是有惊无险地都实现了（详情见游记）。同时，这学期的个人赛也算是小满贯，拿到了蓝桥杯省一（国赛和兼职时间撞了，没打），百度之星预选赛铜牌，睿抗省一+国一等等。也把技能树点了点，学会了一些图论和数据结构，CF打上了1600，唯一可惜的就是春季杭电个人赛经常摆烂，训练效果不是很好。</p>
+        <p>暑假，先是给小朋友们上了十天的集训课。校内这边，lus要求所有人强制留校参加杭电多校，队友拿脚投票选择打后面8场。你能想到暑假没有空调的北一有多热吗？体感温度有35摄氏度，沟槽的学校。后来发现这是lus做的局！为什么这么说？lus恐吓流表示，下学期区域赛的名额分配要参考暑假杭电的成绩，结果最后名额分配是按网络赛的排名一刀切的，跟暑假杭电打成什么样毫无联系。暑假训练有些效果（存疑），补了一些稀奇古怪的杭电多校题目，CF也是场场不落。</p>
+        <p>转眼开学，又到了网络赛。此时三人的配置来到了CF两蓝（+一紫？empty从来不打CF，保守估计是紫名水平）第一场发挥不错，拿到了校排rk6，可惜后面两场打的不是很好，综合下来排到了rk8，第一轮名额分到了成都站。后面凭借社交达人lus拿到的两张外卡，在沈阳和南京中选择了南京站。马后炮证明这是非常错误的选择，南京站强度爆炸，换成沈阳可能就银了。新学期VP的这么多比赛里，印象最深的是，成都站赛前VP了西安站，三个小时就银了。不过这个赛季的两站都铜了（详细请看游记），报的都是强度最高的几站ICPC，难绷。打完南京站之后，也算是彻底退役了。在这学期结束后辞掉了课外竞赛班的兼职，算法竞赛的故事也自然告一段落。</p>
+
+        <h2 id="summary">总结</h2>
+        <p>这一世我重生了，回到了高一入学的那一刻。时光穿越，我还会选择算法竞赛吗？<br>
+        从功利的角度来说，打这个实在是没有什么性价比，纯粹的个人爱好罢了。或许高中卷文化课，大学多卷绩点/发论文/找实习，出路会更好，但是思考算法题和写代码是奇妙的感觉，所以我还是会打的！<br>
+        如果您看完了整个小作文，我会十分感动，谢谢您的阅读！<br>
+        2026/5/5</p>
+
+        <div class="comment-title">评论</div>     
+        <div class="giscus-container">
+          <script src="https://giscus.app/client.js"
+                  data-repo="QianKee/QianKee.github.io"
+                  data-repo-id="R_kgDOPi_lmw"
+                  data-category="Announcements"
+                  data-category-id="DIC_kwDOPi_lm84C8Xop"
+                  data-mapping="pathname"
+                  data-strict="0"
+                  data-reactions-enabled="1"
+                  data-emit-metadata="0"
+                  data-input-position="bottom"
+                  data-theme="light"
+                  data-lang="zh-CN"
+                  crossorigin="anonymous"
+                  async>
+          </script>
+        </div>
+      </article>
+    </main>
+
+    <aside class="toc">
+      <div class="toc-title">目录</div>
+      <a href="#junior">初中</a>
+      <a href="#senior">高中</a>
+      <a href="#university">大学</a>
+      <a href="#summary">总结</a>
+    </aside>
+  </div>
+</body>
+</html>
