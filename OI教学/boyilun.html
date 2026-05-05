@@ -83,6 +83,29 @@
       .page { grid-template-columns: 1fr; }
       .toc { position: static; }
     }
+    .giscus-container {
+  margin-top: 60px;
+  padding: 28px;
+
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+
+  width: 100%;
+}
+
+.giscus-container iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block;
+  border-radius: 12px;
+}
+.comment-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 60px 0 16px;
+}
   </style>
 </head>
 <body>
@@ -149,6 +172,25 @@
         <p><strong>结论：</strong>先手必输当且仅当 $n=1$ 且 $m=1$。</p>
         <p><strong>证明：</strong>反证法。假设先手第一次取 $(a,b)$,后手第一次取 $(c,d)$ 且后手取胜。由题意，$c > a,d > b$，则先手可以直接取走 $(c,d)$ 这一格。两者胜负情况也反转。故后手不存在必胜方案。</p>
         <p><strong>扩展：</strong>删数游戏，约数问题，三维chomp游戏。</p>
+      <!-- 评论区 -->
+<div class="comment-title">评论</div>     
+<div class="giscus-container">
+  <script src="https://giscus.app/client.js"
+          data-repo="QianKee/QianKee.github.io"
+          data-repo-id="R_kgDOPi_lmw"
+          data-category="Announcements"
+          data-category-id="DIC_kwDOPi_lm84C8Xop"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="zh-CN"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>        
       </article>
     </main>
 
