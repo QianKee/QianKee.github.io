@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>博弈论--从入门到入土 | QianK's Blog</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: rgba(255, 255, 255, 0.86);
+      --text: #202124;
+      --muted: #696f7a;
+      --line: rgba(32, 33, 36, 0.1);
+      --accent: #406cff;
+      --shadow: 0 18px 50px rgba(30, 35, 50, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+    }
+    a { color: inherit; text-decoration: none; }
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 820px) 220px;
+      gap: 42px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+    h1 { margin: 0 0 12px; font-size: 38px; }
+    .meta { margin-bottom: 36px; color: var(--muted); font-size: 14px; }
+    h2 { margin: 44px 0 16px; font-size: 24px; scroll-margin-top: 28px; border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+    p { margin: 0 0 18px; font-size: 16px; }
+    .note {
+      background: rgba(64, 108, 255, 0.05);
+      border-left: 4px solid var(--accent);
+      padding: 16px;
+      margin-bottom: 24px;
+      border-radius: 0 8px 8px 0;
+    }
+    del { color: var(--muted); }
+    .toc {
+      position: sticky;
+      top: 32px;
+      align-self: start; /* 核心修改：防止导航栏拉伸，使其可随滚动停靠 */
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+    }
+    .toc-title { margin-bottom: 10px; font-weight: 800; }
+    .toc a { display: block; padding: 6px 0; color: var(--muted); font-size: 14px; }
+    .toc a:hover { color: var(--accent); }
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; }
+      .toc { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <a class="back" href="./index.html">← 返回算法笔记</a>
+      <article>
+        <h1>博弈论基础笔记</h1>
+        <div class="meta">算法 · 博弈论 · 2026</div>
+
+        <div class="note">
+          <strong>前置知识：</strong><br>
+          序列 $a_i$ 的异或和为 $0$ 时，减小某个 $a_i$ 只能让异或和变为非 $0$，异或和不为 $0$ 时，减小某个 $a_i$ 可以让异或和变为非 $0$ 或者 $0$。
+        </div>
+
+        <h2 id="sg-theory">0. SG函数, SG定理</h2>
+        <p>公平博弈游戏可以看成有向无环图上的博弈。每次操作等价于把节点 $v$ 移动到若干个可行的 $u$ 中的一个，规定最后无法移动的局面为 $SG(0)=0$，且无法移动时先手为败。则 $SG(v)=mex(SG(u)|v->u合法)$。若 $SG(v) \not = 0$，则从 $v$ 节点开始的游戏先手必胜，反之先手必败。</p>
+        <p><del>证明：不太会,但直观感受一下非常正确</del></p>
+
+        <h2 id="nim-game">1. Nim游戏</h2>
+        <p><strong>题意：</strong>$n$ 堆石头，第 $i$ 堆有 $a_i$ 个，每次可以取一堆中的任意正数颗，无法操作者输，问先手还是后手胜。</p>
+        <p><strong>结论：</strong>无需多言，$\bigoplus_{i=1}^n a_i =0 $ 时先手必败。</p>
+        <p><strong>证明：</strong>归纳法。最终局面为 $n$ 堆 $0$，此时异或和为 0。异或和非 0 时必然存在一种方法走到异或和为 0 的局面，异或和为 0 的局面只能走到异或和非 0 的局面。</p>
+
+        <h2 id="anti-nim">2. 反Nim游戏</h2>
+        <p><strong>题意：</strong>取法同Nim，取胜规则相反，取走最后一枚石子的败，问先手还是后手胜。</p>
+        <p><strong>结论：</strong>石子全为 1 时，讨论奇偶。若不全为 1，则 $\bigoplus_{i=1}^n a_i =0 $ 时先手必败。</p>
+        <p><strong>证明：</strong>归纳法。讨论奇偶是显然的。考虑只有 $1$ 堆石子个数大于 1 时，此时先手可以选择全取走或者只留下 $1$ 个来改变/不变 1 的奇偶数，所以先手必胜。这种局面异或和不等于 0，所以归纳法可知，异或和不为 0 时先手必胜，异或和为 0 时先手必败。</p>
+
+        <h2 id="staircase-nim">3. 阶梯Nim游戏</h2>
+        <p><strong>题意：</strong>$n$ 堆石子，每次可以把第 $i$ 堆 $(1\leq i \leq n)$ 的任意颗移动到第 $i-1$ 堆，无法操作者输，问先手必败还剩必胜。</p>
+        <p><strong>结论：</strong>等价于在奇数堆做Nim游戏。</p>
+        <p><strong>证明：</strong>先考虑只有偶数堆有石子，此时先手必败。先手只能把偶数堆的石子移动到奇数堆，因为后手可以把先手移动的石子拿到下一个偶数堆，这一决策会让后手必胜，所以先手必败。所以把奇数堆的石子拿到偶数堆就相当于直接取走了这些石子。我们只需要对奇数堆做Nim游戏就行。</p>
+
+        <h2 id="k-nim">4. K-Nim游戏</h2>
+        <p><strong>题意：</strong>$n$ 堆石子，每次可以取至少 1 堆，至多 k 堆中的任意颗，其他同Nim。</p>
+        <p><strong>结论：</strong>先手必败当且仅当二进制每一位的和为 $k+1$ 的倍数。</p>
+        <p><strong>证明：</strong>归纳法。全 0 的局面先手必败，此时每一位的和均为 0，满足结论。显然，所有位的和均为 $k+1$ 的倍数时，任意操作一次后一定存在至少一位的和不是 $k+1$ 的倍数。再一次操作时，存在一种选法使得每一位的和又变为 $k+1$ 的倍数。注意到Nim游戏就是 $k==1$ 时的K-Nim游戏。</p>
+
+        <h2 id="bash-game">5. 巴什博弈</h2>
+        <p><strong>题意：</strong>有一堆石子，每次可以拿至少 1 个至多 m 个，先取完的胜。问先手是否必胜。</p>
+        <p><strong>结论：</strong>先手必败当且仅当 $(m+1)| n$。</p>
+        <p><strong>证明：</strong>$n < m+1$ 时,先手一次取走，先手必胜。$n=m+1$ 时，先手操作一次给后手留下 $n<m+1$ 的局面，先手必败。由于 $n\not = k*(m+1)$ 时，存在一种取法使得 $n= p*(m+1)$，$n=k*(m+1)$ 时，一次操作必然会使 $n\not = p*(m+1)$，归纳可知结论成立。</p>
+
+        <h2 id="wythoff-game">5. 威佐夫博弈</h2>
+        <p><strong>题意：</strong>有两堆石子，每堆的个数分别为 $a,b$。每次取时可以只选一堆取任意颗，也可以选两堆并取走相同的个数，不能不取。问先手是否必胜。</p>
+        <p><strong>结论：</strong>经过一堆繁琐的公式推导，先手必败当且仅当存在 $k$，使得：</p>
+        $$
+        \begin{cases}
+        a=\lfloor \frac{k*(1+\sqrt5))}{2} \rfloor
+        ,\quad x\leq 0\\
+        b=a+k, \quad x>0
+        \end{cases}
+        $$
+        <p><strong>证明：</strong>可以画图归纳/打表找规律。<del>但是我不会证</del></p>
+
+        <h2 id="fibonacci-game">6. 斐波那契博弈</h2>
+        <p><strong>题意：</strong>一堆棋子，$n(n\geq 2)$ 颗，先手第一次取时不能全部取走，从后手第一次取开始每次取的棋子至多为对手上一次取的两倍。最后取完的为胜。问先手是否必胜。</p>
+        <p><strong>结论：</strong>先手必败当且仅当 $n$ 为斐波那契数。</p>
+        <p><strong>证明：</strong>Zeckendorf 定理。</p>
+
+        <h2 id="chomp-game">7. chomp博弈</h2>
+        <p><strong>题意：</strong>$n*m$ 的棋盘，所有格子有且仅有一个棋子。每次可以选取一个棋子 $(a,b)$，把所有 $(x,y)(x\leq a,y\leq b)$ 的棋子拿走。当且仅当只剩下 (1,1) 一个棋子时可以选择 (1,1)，其他格子不做限制。取 (1,1) 的输，问先手是否必胜。</p>
+        <p><strong>结论：</strong>先手必输当且仅当 $n=1$ 且 $m=1$。</p>
+        <p><strong>证明：</strong>反证法。假设先手第一次取 $(a,b)$,后手第一次取 $(c,d)$ 且后手取胜。由题意，$c > a,d > b$，则先手可以直接取走 $(c,d)$ 这一格。两者胜负情况也反转。故后手不存在必胜方案。</p>
+        <p><strong>扩展：</strong>删数游戏，约数问题，三维chomp游戏。</p>
+      </article>
+    </main>
+
+    <aside class="toc">
+      <div class="toc-title">目录</div>
+      <a href="#sg-theory">0. SG函数, SG定理</a>
+      <a href="#nim-game">1. Nim游戏</a>
+      <a href="#anti-nim">2. 反Nim游戏</a>
+      <a href="#staircase-nim">3. 阶梯Nim游戏</a>
+      <a href="#k-nim">4. K-Nim游戏</a>
+      <a href="#bash-game">5. 巴什博弈</a>
+      <a href="#wythoff-game">5. 威佐夫博弈</a>
+      <a href="#fibonacci-game">6. 斐波那契博弈</a>
+      <a href="#chomp-game">7. chomp博弈</a>
+    </aside>
+  </div>
+</body>
+</html>
